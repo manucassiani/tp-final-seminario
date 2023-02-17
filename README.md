@@ -7,5 +7,3 @@ Este Trabajo consiste en la creación de un proyecto end to end de datascience u
 Integrantes:
 - Manuel Cassiani
 - Juan Pablo Casal
-
-asdadsasd
