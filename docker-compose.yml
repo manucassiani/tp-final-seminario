@@ -102,6 +102,17 @@ services:
       POSTGRES_PASSWORD: w0rkzh0p
     ports:
       - "5432:5432"
+  pgadmin:
+    container_name: pgadmin4 
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: mcassiani@itba.edu.ar
+      PGADMIN_DEFAULT_PASSWORD: postgres
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres      
 
   redis:
     container_name: redis
