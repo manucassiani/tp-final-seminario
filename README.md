@@ -39,7 +39,7 @@ En este primer análisis de datos se realizaron los siguientes estudios:
 
 * Mapa de calor (correlación entre variables)
 
- ![mapa_de_calor](/home/manuel/Escritorio/ITBA/10-Seminario_Intensivo/tp-final-seminario/images/img1.png)
+ ![mapa_de_calor](./images/img1.png)
 
 * Distplot
 * Countplot
