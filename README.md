@@ -29,13 +29,11 @@ proyecto: jupyter/notebook/hotel_reservations.ipynb
 * 8 - Postgres
 
 ### 1 - Importacion dataset y configuracion Schema
-
 En esta etapa se crea la sesión de spark y se levanta el dataset hotel_reservations.csv
 Además se define el esquema de la tabla, columnas de tipo entero, columnas de tipo flotante y columnas de tipo string.
 
 
 ### 2 - Primer EDA
-
 En este primer análisis de datos se realizaron los siguientes estudios:
 
 * Mapa de calor (correlación entre variables)
@@ -52,7 +50,6 @@ En este primer análisis de datos se realizaron los siguientes estudios:
 
 
 ### 3 - Valores Nulos y Constantes
-
 **Valores Nulos:** No contamos con valores nulos.
 
  ![valores_nulos](./images/img5.png)
@@ -61,7 +58,6 @@ En este primer análisis de datos se realizaron los siguientes estudios:
 
  
 ### 4 - Ingeniería de atributos
-
 Se han generado las siguientes 10 variables nuevas:
 * total_ocupantes: suma entre numero de adultos y numero de niños.
 ![total_ocupantes](./images/img7.png)
@@ -108,7 +104,6 @@ No solo que el random forest devolvió mejores resultado en torno al AUC, sino q
 
 
 ### 8 - Postgres
-
 Finalmente se guardaron los datasets que se utilizaron para el entrenamiento y test del modelo en una base de datos en postgres.
 
 
