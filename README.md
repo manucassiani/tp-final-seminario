@@ -91,6 +91,7 @@ Previo a entrenar el dataset para generar el modelo de ML se deben realizar cier
 **AUC:** 0.72
 
 **Feature Importance:**
+
 ![feat_imp_dt](./images/img12.png)
 
 
@@ -98,6 +99,7 @@ Previo a entrenar el dataset para generar el modelo de ML se deben realizar cier
 **AUC:** 0.88
 
 **Feature Importance:**
+
 ![feat_imp_dt](./images/img13.png)
 
 No solo que el random forest devolvió mejores resultado en torno al AUC, sino que también probamos los resultados para diferentes semillas y en el caso del árbol de decisión los valores de AUC variaban mucho, en cambio para el random forest los valores de AUC tuvieron poca variabilidad, es decir el random forest es un modelo mas robusto y con mayor probabilides de evitar tener grandes problemas con el overfitting.
