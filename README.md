@@ -33,6 +33,7 @@ proyecto: jupyter/notebook/hotel_reservations.ipynb
 En esta etapa se crea la sesión de spark y se levanta el dataset hotel_reservations.csv
 Además se define el esquema de la tabla, columnas de tipo entero, columnas de tipo flotante y columnas del tipo categórico.
 
+
 ### 2 - Primer EDA
 
 En este primer análisis de datos se realizaron los siguientes estudios:
@@ -49,6 +50,7 @@ En este primer análisis de datos se realizaron los siguientes estudios:
 
  ![countplot](./images/img4.png)
 
+
 ### 3 - Valores Nulos y Constantes
 
 **Valores Nulos:** No contamos con valores nulos.
@@ -56,6 +58,7 @@ En este primer análisis de datos se realizaron los siguientes estudios:
  ![valores_nulos](./images/img5.png)
  
 **Valores Constantes:** La mayoría de las variables tienen una desviación estandar por debajo de la unidad. De todas formas decidimos no eliminar ninguna variable. Luego de evaluar el modelo de ML y determinar la importancia de variables tomaremos una decisión sobre si es necesario eliminar alguna.
+
  
 ### 4 - Ingeniería de atributos
 
@@ -75,6 +78,7 @@ Se han generado las siguientes 10 variables nuevas:
 * market_segment_type_SUM_repeated_guest: suma entre las variables 'market_segment_type' y 'repeated_guest'.
 * rango_de_montos_SUM_temporada_USA: suma entre las variables 'type_of_meal_plan' y 'temporada_USA'.
 
+
 ### 5 - Preparación de datos para realizar modelos ML
 Previo a entrenar el dataset para generar el modelo de ML se deben realizar ciertos preprocesos:
 
@@ -86,11 +90,13 @@ Previo a entrenar el dataset para generar el modelo de ML se deben realizar cier
 * Train/Test: se utilizó un 70% de los datos para entrenamiento y el 30% restante para evaluar el modelo.
 ![train_test](./images/img10.png)
 
+
 ### 6 - Árbol de decisión
 **AUC:** 0.72
 
 **Feature Importance:**
 ![feat_imp_dt](./images/img12.png)
+
 
 ### 7 - Random Forest
 **AUC:** 0.88
@@ -99,6 +105,7 @@ Previo a entrenar el dataset para generar el modelo de ML se deben realizar cier
 ![feat_imp_dt](./images/img13.png)
 
 No solo que el random forest devolvió mejores resultado en torno al AUC, sino que también probamos los resultados para diferentes semillas y en el caso del árbol de decisión los valores de AUC variaban mucho, en cambio para el random forest los valores de AUC tuvieron poca variabilidad, es decir el random forest es un modelo mas robusto y con mayor probabilides de evitar tener grandes problemas con el overfitting.
+
 
 ### 8 - Postgres
 
