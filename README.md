@@ -82,6 +82,7 @@ Previo a entrenar el dataset para generar el modelo de ML se deben realizar cier
 * Balanceo de datos: debido a que el desbalanceo en la proporción de las clases no es tan elevado, se decidió no balancear el dataset y trabajar con la misma cantidad de filas.
 * Checkeo de nulos: gracias a este preproceso pudimos detectar una falla en la creación de uno de los atributos derivados. Si alguno de los datos fuera nulo, luego los algoritmos que utilizamos para entrenar el modelo fallarían.
 * Vector assembler: para entrenar los modelos con los algoritmos de ML y utilizando spark, es necesario pasarle cada una de las filas (sin la etiqueta) en formato vector.
+
 ![vector_assembler](./images/img11.png)
 * Train/Test: se utilizó un 70% de los datos para entrenamiento y el 30% restante para evaluar el modelo.
 ![train_test](./images/img10.png)
