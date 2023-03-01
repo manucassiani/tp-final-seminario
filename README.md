@@ -42,15 +42,67 @@ En este primer análisis de datos se realizaron los siguientes estudios:
  ![mapa_de_calor](./images/img1.png)
 
 * Distplot
+
+ ![distplot](./images/img3.png)
+
 * Countplot
 
+ ![countplot](./images/img4.png)
 
 ### 3 - Valores Nulos y Constantes
+
+**Valores Nulos:** No contamos con valores nulos.
+
+ ![valores_nulos](./images/img5.png)
+ 
+**Valores Constantes:** La mayoría de las variables tienen una desviación estandar por debajo de la unidad. De todas formas decidimos no eliminar ninguna variable. Luego de evaluar el modelo de ML y determinar la importancia de variables tomaremos una decisión sobre si es necesario eliminar alguna.
+ 
 ### 4 - Ingeniería de atributos
+
+Se han generado las siguientes 10 variables nuevas:
+* total_ocupantes: suma entre numero de adultos y numero de niños.
+![total_ocupantes](./images/img7.png)
+* total_dias: suma entre cantidad de dias de la semana y cantidad de días del fin de semana reservados.
+![total_dias](./images/img9.png)
+* precio_x_ocupante: cociente entre el precio promedio de la habitación y el total de ocupantes.
+* precio_x_adulto: cociente entre el precio promedio de la habitación y el numero de adultos, en caso de no haber adultos esta variable se mapea con el precio promedio.
+![precio_x_adulto](./images/img6.png)
+* temporada_USA: primavera, verano, otoño o invierno (USA).
+![temporada_USA](./images/img8.png)
+* rango_de_montos: Se transformó la variable continua de montos en una variable discreta, los rangos son los siguientes '<60', '60-80', '80-120', '120-150', '>150'.
+* type_of_meal_plan_SUM_room_type_reserved: suma entre las variables 'type_of_meal_plan' y 'room_type_reserved'.
+* market_segment_type_SUM_room_type_reserved: suma entre las variables 'market_segment_type' y 'room_type_reserved'.
+* market_segment_type_SUM_repeated_guest: suma entre las variables 'market_segment_type' y 'repeated_guest'.
+* rango_de_montos_SUM_temporada_USA: suma entre las variables 'type_of_meal_plan' y 'temporada_USA'.
+
 ### 5 - Preparación de datos para realizar modelos ML
+Previo a entrenar el dataset para generar el modelo de ML se deben realizar ciertos preprocesos:
+
+* Eliminación de variables: se eliminaron variables innecesarias como el ID y variables que pueden romper el algoritmo como las variables del tipo string (previamente estas variables fueron duplicadas y se les realizaron un encoding).
+* Balanceo de datos: debido a que el desbalanceo en la proporción de las clases no es tan elevado, se decidió no balancear el dataset y trabajar con la misma cantidad de filas.
+* Checkeo de nulos: gracias a este preproceso pudimos detectar una falla en la creación de uno de los atributos derivados. Si alguno de los datos fuera nulo, luego los algoritmos que utilizamos para entrenar el modelo fallarían.
+* Vector assembler: para entrenar los modelos con los algoritmos de ML y utilizando spark, es necesario pasarle cada una de las filas (sin la etiqueta) en formato vector.
+![vector_assembler](./images/img11.png)
+* Train/Test: se utilizó un 70% de los datos para entrenamiento y el 30% restante para evaluar el modelo.
+![train_test](./images/img10.png)
+
 ### 6 - Árbol de decisión
+**AUC:** 0.72
+
+**Feature Importance:**
+![feat_imp_dt](./images/img12.png)
+
 ### 7 - Random Forest
+**AUC:** 0.88
+
+**Feature Importance:**
+![feat_imp_dt](./images/img13.png)
+
+No solo que el random forest devolvió mejores resultado en torno al AUC, sino que también probamos los resultados para diferentes semillas y en el caso del árbol de decisión los valores de AUC variaban mucho, en cambio para el random forest los valores de AUC tuvieron poca variabilidad, es decir el random forest es un modelo mas robusto y con mayor probabilides de evitar tener grandes problemas con el overfitting.
+
 ### 8 - Postgres
+
+Finalmente se guardaron los datasets que se utilizaron para el entrenamiento y test del modelo en una base de datos en postgres.
 
 
 
